@@ -42,7 +42,7 @@ public class JobData {
                 values.add(aValue);
             }
         }
-
+        System.out.println(allJobs);
         return values;
     }
 
@@ -51,6 +51,14 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
+//        ArrayList<String> allValues = new ArrayList<>();
+//        for (HashMap<String, String> row : allJobs) {
+//            String aValue = row.get();
+//
+//            if (!allValues.contains(aValue)) {
+//                allValues.add(aValue);
+//            }
+//        }
         return allJobs;
     }
 
