@@ -1,9 +1,6 @@
 package org.launchcode.techjobs.console;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -111,19 +108,15 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-        for (Map<String, String> someJob : someJobs) {
+        for (HashMap<String, String> someJob : someJobs) {
+            String output;
+            System.out.println("*****");
             for (String key : someJob.keySet()) {
                 String value = someJob.get(key);
-//                for (int i = 0; i > someJob.size(); i++) {
-//            System.out.println(someJob.keySet() + ": " + someJob.values());
-//            for (Map.Entry<String, String> entry : someJob.entrySet()) {
-//                jobKey.add(entry.getKey());
-//                jobValue.add(entry.getValue());
-//                    System.out.println(someJob.size());
-
-                System.out.println(key + ": " + value);
+               output = key + ": " + value;
+               System.out.println(output);
             }
-//            "*****\n" + map.keySet() + "\n*****"
+            System.out.println("*****");
         }
     }
 }
