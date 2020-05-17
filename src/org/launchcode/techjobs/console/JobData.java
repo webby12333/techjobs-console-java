@@ -57,17 +57,20 @@ public class JobData {
         loadData();
 //        System.out.println(value);
         ArrayList<HashMap<String, String>> values = new ArrayList<>();
-//        System.out.println(allJobs);
         for (HashMap<String, String> val : allJobs) {
 //            System.out.println(val);
-//            String aValue = value;
-
             for (String key : val.keySet()) {
-                String aValue = val.get(key);
+                String valValue = val.get(key);
+//                valValue.toLowerCase();
+//                value.toLowerCase();
+//                System.out.println(valValue);
+//                System.out.println(value);
 
-                if (aValue.contains(value)) {
-                    ;
-                    values.add(val);
+                if (valValue.toLowerCase().contains(value.toLowerCase())) {
+                    if (!values.contains(val)) {
+                        values.add(val);
+//                        System.out.println("This is duplicate");
+                    }
                 }
             }
 //           ;
