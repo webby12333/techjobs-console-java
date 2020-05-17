@@ -3,7 +3,7 @@ package org.launchcode.techjobs.console;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-
+import java.util.Collections;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -41,8 +41,9 @@ public class JobData {
             if (!values.contains(aValue)) {
                 values.add(aValue);
             }
+            Collections.sort(values);
         }
-        System.out.println(allJobs);
+//        System.out.println(allJobs);
         return values;
     }
 
@@ -51,7 +52,7 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        return allJobs;
+        return (ArrayList<HashMap<String, String>>) allJobs.clone();
     }
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
         loadData();
@@ -107,9 +108,13 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
-                jobs.add(row);
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
+                if (!jobs.contains(row)) {
+                    jobs.add(row);
+
+                }
             }
+//            Collections.sort(jobs);
         }
 
 
