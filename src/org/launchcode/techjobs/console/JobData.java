@@ -51,17 +51,38 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-//        ArrayList<String> allValues = new ArrayList<>();
-//        for (HashMap<String, String> row : allJobs) {
-//            String aValue = row.get();
-//
-//            if (!allValues.contains(aValue)) {
-//                allValues.add(aValue);
-//            }
-//        }
         return allJobs;
     }
+    public static ArrayList<HashMap<String, String>> findByValue(String value) {
+        loadData();
+//        System.out.println(value);
+        ArrayList<HashMap<String, String>> values = new ArrayList<>();
+//        System.out.println(allJobs);
+        for (HashMap<String, String> val : allJobs) {
+//            System.out.println(val);
+//            String aValue = value;
 
+            for (String key : val.keySet()) {
+                String aValue = val.get(key);
+
+                if (aValue.contains(value)) {
+                    ;
+                    values.add(val);
+                }
+            }
+//           ;
+//            System.out.println(aValue);
+
+//            System.out.println(bValue);
+//            if (aValue.contains(value)) {
+//                values.add(val);
+//            }
+
+        }
+//        System.out.println(values);
+        System.out.println(values.size());
+        return values;
+    }
     /**
      * Returns results of search the jobs data by key/value, using
      * inclusion of the search term.
@@ -79,7 +100,6 @@ public class JobData {
         loadData();
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-
         for (HashMap<String, String> row : allJobs) {
 
             String aValue = row.get(column);
@@ -89,6 +109,9 @@ public class JobData {
             }
         }
 
+
+
+//        System.out.print(jobs + "This is the test");
         return jobs;
     }
 
