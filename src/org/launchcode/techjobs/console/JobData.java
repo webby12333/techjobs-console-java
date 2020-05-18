@@ -68,11 +68,10 @@ public class JobData {
 //                System.out.println(value);
 
                 if (valValue.toLowerCase().contains(value.toLowerCase())) {
-                    if (!values.contains(val)) {
                         values.add(val);
-//                        System.out.println("This is duplicate");
-                    }
+
                 }
+                continue;
             }
 //           ;
 //            System.out.println(aValue);
@@ -84,7 +83,7 @@ public class JobData {
 
         }
 //        System.out.println(values);
-        System.out.println(values.size());
+//        System.out.println(values.size());
         return values;
     }
     /**
